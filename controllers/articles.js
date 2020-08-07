@@ -2,7 +2,7 @@ const Article = require('../models/articles')
 
 module.exports = (app, checkJwt) => {
   // RETURN ALL ARTICLES
-  app.get('/articles', checkJwt, (req, res) => {
+  app.get('/articles', (req, res) => {
     // Get all articles
     Article.find({})
       .then((articles) => {

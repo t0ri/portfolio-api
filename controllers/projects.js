@@ -2,7 +2,7 @@ const Project = require('../models/projects')
 
 module.exports = (app, checkJwt) => {
   // RETURN ALL PROJECTS
-  app.get('/projects', checkJwt, (req, res) => {
+  app.get('/projects', (req, res) => {
     // Get all Projects
     Project.find({})
       .then((projects) => {
@@ -41,7 +41,7 @@ module.exports = (app, checkJwt) => {
 
 
   // RETURN ONE PROJECT
-  app.get('/projects/:id', checkJwt, (req, res) => {
+  app.get('/projects/:id', (req, res) => {
     // Find a Project by `id` passed through request parameters
     Project.findById(req.params.id)
       .then((project) => {
