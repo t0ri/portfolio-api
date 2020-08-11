@@ -5,6 +5,8 @@ const ProjectSchema = new mongoose.Schema({
   shortDesc: { type: String, required: true },
   longDesc: { type: String, required: true },
   technologies: { type: String, required: true },
+
+  created: { type: String, required: true },
   
   img: { type: String, required: true },
   
