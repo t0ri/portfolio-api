@@ -7,6 +7,8 @@ const bodyParser = require('body-parser')
 const jwt = require('express-jwt')
 const jwtAuthz = require('express-jwt-authz')
 const jwksRsa = require('jwks-rsa')
+// WakeUp Module
+const keepAwake = require('./modules/keepAwake')
 
 // Initialize Server
 const app = express()
@@ -54,6 +56,7 @@ require('./controllers/articles.js')(app, checkJwt)
 
 // Start Server
 app.listen(process.env.PORT, () => {
+  keepAwake('https://toridotdev-api.herokuapp.com') // Ping server every 25 minutes to keep Heroku app awake
   console.info(
     `🌎🚀 Server now listening on Port: ${process.env.PORT} | Environment: ${app.get('env')}`
   )
